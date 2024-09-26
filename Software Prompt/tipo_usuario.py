@@ -32,7 +32,7 @@ class TipoUsuarioDB:
         if self.connection is not None and self.connection.is_connected():
             try:
                 cursor = self.connection.cursor()
-                sql_query = "INSERT INTO tipoUsuario (tipo) VALUES (%s)"
+                sql_query = "INSERT INTO tipoUsuario (tipo) VALUES (%s)" ##Código que insere os dados na tabela tipo de usuarios.
                 cursor.execute(sql_query, (tipo,))
                 self.connection.commit()
                 print(f"Tipo de usuário '{tipo}' inserido com sucesso!")
@@ -45,7 +45,7 @@ class TipoUsuarioDB:
         if self.connection is not None and self.connection.is_connected():
             try:
                 cursor = self.connection.cursor()
-                cursor.execute("SELECT * FROM tipoUsuario")
+                cursor.execute("SELECT * FROM tipoUsuario") ##Código que mostra todos os tipos de usuarios na tabela.
                 tipos = cursor.fetchall()
                 if tipos:
                     print("Lista de Tipos de Usuários:")
