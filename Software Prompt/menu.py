@@ -1,30 +1,21 @@
-from cadastroUsuario import CadastroUsuario
+from tipo_usuario import TipoUsuarioDB
 
-def menu():
-    cadastro = CadastroUsuario()
-    
+# Função para exibir o menu
+def menu(db):
     while True:
-        print("1. Cadastrar Usuário")
-        print("2. Listar Usuários")
-        print("3. Cadastrar Tipo de Usuário")
-        print("4. Listar Tipos de Usuários")
-        print("5. Sair")
-
-        opcao = input("\nEscolha uma opção: ")
-
+        print("\n=== Menu de Opções ===")
+        print("1. Cadastrar tipo de usuário")
+        print("2. Mostrar tipos de usuário")
+        print("3. Sair")
+        opcao = input("Escolha uma opção: ")
+        
         if opcao == "1":
-            cadastro.cadastrar_usuario()
+            tipo = input("Digite o tipo de usuário que deseja cadastrar: ")
+            db.inserir_tipo_usuario(tipo)
         elif opcao == "2":
-            cadastro.listar_usuarios()
+            db.listar_tipos_usuario()
         elif opcao == "3":
-            cadastro.cadastrar_tipo_usuario()
-        elif opcao == "4":
-            cadastro.listar_tipos_usuario()
-        elif opcao == "5":
-            print("Saindo...")
+            print("Saindo do sistema...")
             break
         else:
-            print("Opção inválida. Tente novamente.")
-
-if __name__ == "__main__":
-    menu()
+            print("Opção inválida, tente novamente.")
