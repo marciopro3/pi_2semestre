@@ -73,25 +73,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `SBOReciclaSV`.`agendamento`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SBOReciclaSV`.`agendamento` (
-  `idagendamento` INT NOT NULL AUTO_INCREMENT,
-  `usuario_idusuario` INT NOT NULL,
-  `data` DATE NULL,
-  `hora` TIME NULL,
-  `status` VARCHAR(12) NULL,
-  PRIMARY KEY (`idagendamento`),
-  INDEX `fk_agendamento_usuario1_idx` (`usuario_idusuario` ASC) VISIBLE,
-  CONSTRAINT `fk_agendamento_usuario1`
-    FOREIGN KEY (`usuario_idusuario`)
-    REFERENCES `SBOReciclaSV`.`usuario` (`idusuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `SBOReciclaSV`.`estado`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SBOReciclaSV`.`estado` (
@@ -119,6 +100,46 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `SBOReciclaSV`.`coletor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SBOReciclaSV`.`coletor` (
+  `idcoletor` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NULL,
+  `cnpjCpf` VARCHAR(20) NULL,
+  `telefone` VARCHAR(20) NULL,
+  `endereco` VARCHAR(100) NULL,
+  `cidade_idcidade` INT NOT NULL,
+  `dataCadastro` DATE NULL,
+  PRIMARY KEY (`idcoletor`, `cidade_idcidade`),
+  INDEX `fk_coletor_cidade1_idx` (`cidade_idcidade` ASC) VISIBLE,
+  CONSTRAINT `fk_coletor_cidade1`
+    FOREIGN KEY (`cidade_idcidade`)
+    REFERENCES `SBOReciclaSV`.`cidade` (`idcidade`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `SBOReciclaSV`.`agendamento`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SBOReciclaSV`.`agendamento` (
+  `idagendamento` INT NOT NULL AUTO_INCREMENT,
+  `data` DATE NULL,
+  `hora` TIME NULL,
+  `status` VARCHAR(12) NULL,
+  `coletor_idcoletor` INT NOT NULL,
+  PRIMARY KEY (`idagendamento`),
+  INDEX `fk_agendamento_coletor1_idx` (`coletor_idcoletor` ASC) VISIBLE,
+  CONSTRAINT `fk_agendamento_coletor1`
+    FOREIGN KEY (`coletor_idcoletor`)
+    REFERENCES `SBOReciclaSV`.`coletor` (`idcoletor`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `SBOReciclaSV`.`deposito`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SBOReciclaSV`.`deposito` (
@@ -135,27 +156,6 @@ CREATE TABLE IF NOT EXISTS `SBOReciclaSV`.`deposito` (
   PRIMARY KEY (`iddeposito`, `cidade_idcidade`),
   INDEX `fk_deposito_cidade1_idx` (`cidade_idcidade` ASC) VISIBLE,
   CONSTRAINT `fk_deposito_cidade1`
-    FOREIGN KEY (`cidade_idcidade`)
-    REFERENCES `SBOReciclaSV`.`cidade` (`idcidade`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `SBOReciclaSV`.`coletor`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SBOReciclaSV`.`coletor` (
-  `idcoletor` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(100) NULL,
-  `cnpjCpf` VARCHAR(20) NULL,
-  `telefone` VARCHAR(20) NULL,
-  `endereco` VARCHAR(100) NULL,
-  `cidade_idcidade` INT NOT NULL,
-  `dataCadastro` DATE NULL,
-  PRIMARY KEY (`idcoletor`, `cidade_idcidade`),
-  INDEX `fk_coletor_cidade1_idx` (`cidade_idcidade` ASC) VISIBLE,
-  CONSTRAINT `fk_coletor_cidade1`
     FOREIGN KEY (`cidade_idcidade`)
     REFERENCES `SBOReciclaSV`.`cidade` (`idcidade`)
     ON DELETE NO ACTION
