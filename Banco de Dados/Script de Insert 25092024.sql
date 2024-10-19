@@ -54,6 +54,41 @@ INSERT INTO categoria (idcategoria, categoria) VALUES
 (5, 'Tetra Pak'),
 (6, 'Bateria');
 
+## MATERIAL
+
+INSERT INTO `SBOReciclaSV`.`material` (`idmaterial`, `nome`, `descricao`, `categoria_idcategoria`)
+VALUES
+(1, 'Papelão', 'Material de papel grosso usado em embalagens', 1),
+(2, 'Garrafa PET', 'Garrafa de plástico transparente para bebidas', 2),
+(3, 'Lata de Alumínio', 'Lata de bebida feita de alumínio', 3),
+(4, 'Vidro Transparente', 'Vidro de garrafa sem cor', 4),
+(5, 'Caixa Tetra Pak', 'Embalagem cartonada usada para sucos e leite', 5),
+(6, 'Pilha AA', 'Bateria cilíndrica usada em pequenos aparelhos', 6),
+(7, 'Papel Branco', 'Papel usado para impressão', 1),
+(8, 'Saco Plástico', 'Saco utilizado para embalar produtos', 2),
+(9, 'Lata de Aço', 'Lata utilizada para alimentos enlatados', 3),
+(10, 'Vidro Colorido', 'Vidro de garrafa com cor', 4),
+(11, 'Papelão Ondulado', 'Papelão com ondulações para maior resistência', 1),
+(12, 'Embalagem de Plástico', 'Embalagem utilizada para alimentos', 2),
+(13, 'Lata de Tinta', 'Lata usada para armazenamento de tinta', 3),
+(14, 'Garrafão de Vidro', 'Garrafão utilizado para armazenar líquidos', 4),
+(15, 'Caixa de Leite Tetra Pak', 'Embalagem para leite feita de Tetra Pak', 5),
+(16, 'Bateria de Lítio', 'Bateria recarregável usada em dispositivos eletrônicos', 6),
+(17, 'Papel Jornal', 'Papel utilizado para impressão de jornais', 1),
+(18, 'Plástico Filme', 'Plástico fino utilizado para embalagens', 2),
+(19, 'Fio de Cobre', 'Material utilizado para fiação elétrica', 3),
+(20, 'Caco de Vidro', 'Pedaços de vidro quebrado', 4),
+(21, 'Embalagem de Alumínio', 'Embalagem metálica utilizada para alimentos', 3),
+(22, 'Papel Cartão', 'Papel mais grosso usado para cartões', 1),
+(23, 'Tubo de PVC', 'Material plástico utilizado em encanamentos', 2),
+(24, 'Lata de Spray', 'Lata usada para armazenar spray de tinta', 3),
+(25, 'Garrafa de Vidro Verde', 'Garrafa feita de vidro verde', 4),
+(26, 'Embalagem de Tetra Pak', 'Material composto de papel, plástico e alumínio', 5),
+(27, 'Bateria de Carro', 'Bateria utilizada para automóveis', 6),
+(28, 'Papel Manteiga', 'Papel usado em culinária', 1),
+(29, 'Espuma Plástica', 'Material plástico leve e flexível', 2),
+(30, 'Papel de Seda', 'Papel fino utilizado em embrulhos', 1);
+
 ## ESTADO
 
 INSERT INTO estado (idestado, nome) VALUES
@@ -519,41 +554,6 @@ VALUES
 ('2024-10-26', '12:45:00', 'Cancelado', 4),
 ('2024-10-27', '07:30:00', 'Concluído', 2);
 
-## MATERIAL
-
-INSERT INTO `SBOReciclaSV`.`material` (`idmaterial`, `nome`, `descricao`, `categoria_idcategoria`)
-VALUES
-(1, 'Papelão', 'Material de papel grosso usado em embalagens', 1),
-(2, 'Garrafa PET', 'Garrafa de plástico transparente para bebidas', 2),
-(3, 'Lata de Alumínio', 'Lata de bebida feita de alumínio', 3),
-(4, 'Vidro Transparente', 'Vidro de garrafa sem cor', 4),
-(5, 'Caixa Tetra Pak', 'Embalagem cartonada usada para sucos e leite', 5),
-(6, 'Pilha AA', 'Bateria cilíndrica usada em pequenos aparelhos', 6),
-(7, 'Papel Branco', 'Papel usado para impressão', 1),
-(8, 'Saco Plástico', 'Saco utilizado para embalar produtos', 2),
-(9, 'Lata de Aço', 'Lata utilizada para alimentos enlatados', 3),
-(10, 'Vidro Colorido', 'Vidro de garrafa com cor', 4),
-(11, 'Papelão Ondulado', 'Papelão com ondulações para maior resistência', 1),
-(12, 'Embalagem de Plástico', 'Embalagem utilizada para alimentos', 2),
-(13, 'Lata de Tinta', 'Lata usada para armazenamento de tinta', 3),
-(14, 'Garrafão de Vidro', 'Garrafão utilizado para armazenar líquidos', 4),
-(15, 'Caixa de Leite Tetra Pak', 'Embalagem para leite feita de Tetra Pak', 5),
-(16, 'Bateria de Lítio', 'Bateria recarregável usada em dispositivos eletrônicos', 6),
-(17, 'Papel Jornal', 'Papel utilizado para impressão de jornais', 1),
-(18, 'Plástico Filme', 'Plástico fino utilizado para embalagens', 2),
-(19, 'Fio de Cobre', 'Material utilizado para fiação elétrica', 3),
-(20, 'Caco de Vidro', 'Pedaços de vidro quebrado', 4),
-(21, 'Embalagem de Alumínio', 'Embalagem metálica utilizada para alimentos', 3),
-(22, 'Papel Cartão', 'Papel mais grosso usado para cartões', 1),
-(23, 'Tubo de PVC', 'Material plástico utilizado em encanamentos', 2),
-(24, 'Lata de Spray', 'Lata usada para armazenar spray de tinta', 3),
-(25, 'Garrafa de Vidro Verde', 'Garrafa feita de vidro verde', 4),
-(26, 'Embalagem de Tetra Pak', 'Material composto de papel, plástico e alumínio', 5),
-(27, 'Bateria de Carro', 'Bateria utilizada para automóveis', 6),
-(28, 'Papel Manteiga', 'Papel usado em culinária', 1),
-(29, 'Espuma Plástica', 'Material plástico leve e flexível', 2),
-(30, 'Papel de Seda', 'Papel fino utilizado em embrulhos', 1);
-
 ## ENTRADA
 
 INSERT INTO entrada (identrada, usuario_idusuario, deposito_iddeposito, material_idmaterial, dataEntrada, quantidade) VALUES
@@ -589,33 +589,35 @@ INSERT INTO entrada (identrada, usuario_idusuario, deposito_iddeposito, material
 
 ## SAIDA
 
-INSERT INTO saida (idsaida, entrada_identrada, entrada_usuario_idusuario, entrada_deposito_iddeposito, entrada_material_idmaterial, coletor_idcoletor, dataSaida, quantidade) VALUES
-(1, 1, 1, 1, 1, 1, '2024-09-01', 0.80),
-(2, 2, 2, 1, 2, 1, '2024-09-02', 1.50),
-(3, 3, 3, 1, 3, 1, '2024-09-03', 2.00),
-(4, 4, 1, 1, 4, 1, '2024-09-04', 3.25),
-(5, 5, 2, 1, 5, 1, '2024-09-05', 0.50),
-(6, 6, 3, 1, 6, 1, '2024-09-06', 1.20),
-(7, 7, 1, 1, 7, 1, '2024-09-07', 4.10),
-(8, 8, 2, 1, 8, 1, '2024-09-08', 0.90),
-(9, 9, 3, 1, 9, 1, '2024-09-09', 1.75),
-(10, 10, 1, 1, 10, 1, '2024-09-10', 2.50),
-(11, 11, 2, 1, 11, 1, '2024-09-11', 0.60),
-(12, 12, 3, 1, 12, 1, '2024-09-12', 3.00),
-(13, 13, 1, 1, 13, 1, '2024-09-13', 2.80),
-(14, 14, 2, 1, 14, 1, '2024-09-14', 1.00),
-(15, 15, 3, 1, 15, 1, '2024-09-15', 5.00),
-(16, 16, 1, 1, 16, 1, '2024-09-16', 0.30),
-(17, 17, 2, 1, 17, 1, '2024-09-17', 1.50),
-(18, 18, 3, 1, 18, 1, '2024-09-18', 0.75),
-(19, 19, 1, 1, 19, 1, '2024-09-19', 4.20),
-(20, 20, 2, 1, 20, 1, '2024-09-20', 0.85),
-(21, 21, 3, 1, 21, 1, '2024-09-21', 2.10),
-(22, 22, 1, 1, 22, 1, '2024-09-22', 1.45),
-(23, 23, 2, 1, 23, 1, '2024-09-23', 3.65),
-(24, 24, 3, 1, 24, 1, '2024-09-24', 0.95),
-(25, 25, 1, 1, 25, 1, '2024-09-25', 2.25),
-(26, 26, 2, 1, 26, 1, '2024-09-26', 1.15),
-(27, 27, 3, 1, 27, 1, '2024-09-27', 3.80),
-(28, 28, 1, 1, 28, 1, '2024-09-28', 0.55),
-(29, 29, 2, 1, 29, 1, '2024-09-29', 1.05);
+INSERT INTO `SBOReciclaSV`.`saida` (deposito_iddeposito, coletor_idcoletor, material_idmaterial, dataSaida, quantidade)
+VALUES
+(1, 2, 1, '2024-10-01', 150.50),
+(1, 3, 2, '2024-10-02', 200.75),
+(1, 4, 3, '2024-10-03', 300.20),
+(1, 5, 1, '2024-10-04', 400.60),
+(1, 6, 2, '2024-10-05', 500.80),
+(1, 7, 3, '2024-10-06', 250.30),
+(1, 8, 4, '2024-10-07', 600.50),
+(1, 9, 5, '2024-10-08', 100.90),
+(1, 10, 6, '2024-10-09', 450.25),
+(1, 11, 7, '2024-10-10', 700.40),
+(1, 12, 8, '2024-10-11', 550.15),
+(1, 13, 1, '2024-10-12', 350.75),
+(1, 14, 2, '2024-10-13', 450.95),
+(1, 15, 3, '2024-10-14', 320.35),
+(1, 16, 4, '2024-10-15', 180.50),
+(1, 17, 5, '2024-10-16', 590.10),
+(1, 18, 6, '2024-10-17', 410.45),
+(1, 19, 7, '2024-10-18', 270.80),
+(1, 20, 8, '2024-10-19', 365.90),
+(1, 21, 1, '2024-10-20', 430.20),
+(1, 22, 2, '2024-10-21', 230.45),
+(1, 23, 3, '2024-10-22', 320.15),
+(1, 24, 4, '2024-10-23', 510.75),
+(1, 25, 5, '2024-10-24', 290.40),
+(1, 26, 6, '2024-10-25', 390.85),
+(1, 27, 7, '2024-10-26', 420.95),
+(1, 28, 8, '2024-10-27', 210.50),
+(1, 29, 1, '2024-10-28', 310.30),
+(1, 30, 2, '2024-10-29', 470.60),
+(1, 1, 3, '2024-10-30', 190.25);

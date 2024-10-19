@@ -164,6 +164,38 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `SBOReciclaSV`.`saida`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `SBOReciclaSV`.`saida` (
+  `idsaida` INT NOT NULL AUTO_INCREMENT,
+  `deposito_iddeposito` INT NOT NULL,
+  `coletor_idcoletor` INT NOT NULL,
+  `material_idmaterial` INT NOT NULL,
+  `dataSaida` DATE NULL,
+  `quantidade` FLOAT NULL,
+  PRIMARY KEY (`idsaida`, `deposito_iddeposito`, `coletor_idcoletor`, `material_idmaterial`),
+  INDEX `fk_saida_coletor1_idx` (`coletor_idcoletor` ASC) VISIBLE,
+  INDEX `fk_saida_deposito1_idx` (`deposito_iddeposito` ASC) VISIBLE,
+  INDEX `fk_saida_material1_idx` (`material_idmaterial` ASC) VISIBLE,
+  CONSTRAINT `fk_saida_coletor1`
+    FOREIGN KEY (`coletor_idcoletor`)
+    REFERENCES `SBOReciclaSV`.`coletor` (`idcoletor`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_saida_deposito1`
+    FOREIGN KEY (`deposito_iddeposito`)
+    REFERENCES `SBOReciclaSV`.`deposito` (`iddeposito`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_saida_material1`
+    FOREIGN KEY (`material_idmaterial`)
+    REFERENCES `SBOReciclaSV`.`material` (`idmaterial`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `SBOReciclaSV`.`entrada`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `SBOReciclaSV`.`entrada` (
@@ -190,34 +222,6 @@ CREATE TABLE IF NOT EXISTS `SBOReciclaSV`.`entrada` (
   CONSTRAINT `fk_entrada_material1`
     FOREIGN KEY (`material_idmaterial`)
     REFERENCES `SBOReciclaSV`.`material` (`idmaterial`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `SBOReciclaSV`.`saida`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SBOReciclaSV`.`saida` (
-  `idsaida` INT NOT NULL AUTO_INCREMENT,
-  `entrada_identrada` INT NOT NULL,
-  `entrada_usuario_idusuario` INT NOT NULL,
-  `entrada_deposito_iddeposito` INT NOT NULL,
-  `entrada_material_idmaterial` INT NOT NULL,
-  `coletor_idcoletor` INT NOT NULL,
-  `dataSaida` DATE NULL,
-  `quantidade` FLOAT NULL,
-  PRIMARY KEY (`idsaida`, `entrada_identrada`, `entrada_usuario_idusuario`, `entrada_deposito_iddeposito`, `entrada_material_idmaterial`, `coletor_idcoletor`),
-  INDEX `fk_saida_entrada1_idx` (`entrada_identrada` ASC, `entrada_usuario_idusuario` ASC, `entrada_deposito_iddeposito` ASC, `entrada_material_idmaterial` ASC) VISIBLE,
-  INDEX `fk_saida_coletor1_idx` (`coletor_idcoletor` ASC) VISIBLE,
-  CONSTRAINT `fk_saida_entrada1`
-    FOREIGN KEY (`entrada_identrada` , `entrada_usuario_idusuario` , `entrada_deposito_iddeposito` , `entrada_material_idmaterial`)
-    REFERENCES `SBOReciclaSV`.`entrada` (`identrada` , `usuario_idusuario` , `deposito_iddeposito` , `material_idmaterial`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_saida_coletor1`
-    FOREIGN KEY (`coletor_idcoletor`)
-    REFERENCES `SBOReciclaSV`.`coletor` (`idcoletor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
