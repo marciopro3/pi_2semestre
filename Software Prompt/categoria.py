@@ -1,8 +1,8 @@
 import mysql.connector
 from mysql.connector import Error
-from tabulate import tabulate
+from tabulate import tabulate  # Importando a biblioteca tabulate
 
-class TipoUsuarioDB:
+class CategoriaDB:
     def __init__(self, host, database, user, password):
         self.host = host
         self.database = database
@@ -29,64 +29,51 @@ class TipoUsuarioDB:
             self.connection.close()
             print("Conexão com o banco de dados encerrada.")
 
-    def inserir_tipo_usuario(self, tipo):
+    def inserir_categoria(self, categoria):
         if self.connection is not None and self.connection.is_connected():
             try:
                 cursor = self.connection.cursor()
-                sql_query = "INSERT INTO tipoUsuario (tipo) VALUES (%s)"
-                cursor.execute(sql_query, (tipo,))
+                sql_query = "INSERT INTO categoria (categoria) VALUES (%s)"
+                cursor.execute(sql_query, (categoria,))
                 self.connection.commit()
-                print(f"Tipo de usuário '{tipo}' inserido com sucesso!")
+                print(f"Categoria '{categoria}' inserida com sucesso!")
             except Error as e:
                 print(f"Erro ao inserir dados: {e}")
 
-    def listar_tipos_usuario(self):
+    def listar_categorias(self):
         if self.connection is not None and self.connection.is_connected():
             try:
                 cursor = self.connection.cursor()
-                cursor.execute("SELECT * FROM tipoUsuario")
-                tipos = cursor.fetchall()
-                if tipos:
-                    print("\n=== Tipos de Usuários ===")
-                    for tipo in tipos:
-                        print(f"ID: {tipo[0]}, Tipo: {tipo[1]}")
+                cursor.execute("SELECT * FROM categoria")
+                categorias = cursor.fetchall()
+                if categorias:
+                    # Criando uma tabela com tabulate
+                    headers = ["ID", "Categoria"]
+                    print("\n=== Categorias Cadastradas ===")
+                    print(tabulate(categorias, headers, tablefmt="pretty"))  # Usando tabulate para formatar
                 else:
-                    print("Nenhum tipo de usuário cadastrado.")
+                    print("Nenhuma categoria cadastrada.")
             except Error as e:
                 print(f"Erro ao buscar dados: {e}")
 
-    def atualizar_tipo_usuario(self, id_tipo, novo_tipo):
+    def atualizar_categoria(self, id_categoria, nova_categoria):
         if self.connection is not None and self.connection.is_connected():
             try:
                 cursor = self.connection.cursor()
-                sql_query = "UPDATE tipoUsuario SET tipo = %s WHERE idtipoUsuario = %s"
-                cursor.execute(sql_query, (novo_tipo, id_tipo))
+                sql_query = "UPDATE categoria SET categoria = %s WHERE idcategoria = %s"
+                cursor.execute(sql_query, (nova_categoria, id_categoria))
                 self.connection.commit()
-                print(f"Tipo de usuário ID {id_tipo} atualizado para '{novo_tipo}'.")
+                print(f"Categoria ID {id_categoria} atualizada para '{nova_categoria}'.")
             except Error as e:
                 print(f"Erro ao atualizar dados: {e}")
 
-    def excluir_tipo_usuario(self, id_tipo):
+    def excluir_categoria(self, id_categoria):
         if self.connection is not None and self.connection.is_connected():
             try:
                 cursor = self.connection.cursor()
-                sql_query = "DELETE FROM tipoUsuario WHERE idtipoUsuario = %s"
-                cursor.execute(sql_query, (id_tipo,))
+                sql_query = "DELETE FROM categoria WHERE idcategoria = %s"
+                cursor.execute(sql_query, (id_categoria,))
                 self.connection.commit()
-                print(f"Tipo de usuário ID {id_tipo} excluído com sucesso!")
+                print(f"Categoria ID {id_categoria} excluída com sucesso!")
             except Error as e:
                 print(f"Erro ao excluir dados: {e}")
-
-# Funções de interface para o menu
-def cadastrar_tipo_usuario(db_tipo_usuario):
-    tipo = input("Digite o tipo de usuário: ")
-    db_tipo_usuario.inserir_tipo_usuario(tipo)
-
-def editar_tipo_usuario(db_tipo_usuario):
-    id_tipo = input("Digite o ID do tipo de usuário que deseja editar: ")
-    novo_tipo = input("Digite o novo tipo de usuário: ")
-    db_tipo_usuario.editar_tipo_usuario(id_tipo, novo_tipo)
-
-def excluir_tipo_usuario(db_tipo_usuario):
-    id_tipo = input("Digite o ID do tipo de usuário que deseja excluir: ")
-    db_tipo_usuario.excluir_tipo_usuario(id_tipo)
