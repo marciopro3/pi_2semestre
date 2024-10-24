@@ -48,8 +48,8 @@ class TipoUsuarioDB:
                 tipos = cursor.fetchall()
                 if tipos:
                     print("\n=== Tipos de Usuários ===")
-                    for tipo in tipos:
-                        print(f"ID: {tipo[0]}, Tipo: {tipo[1]}")
+                    headers = ["ID", "Tipo"]
+                    print(tabulate(tipos, headers=headers, tablefmt="grid"))
                 else:
                     print("Nenhum tipo de usuário cadastrado.")
             except Error as e:
@@ -85,7 +85,7 @@ def cadastrar_tipo_usuario(db_tipo_usuario):
 def editar_tipo_usuario(db_tipo_usuario):
     id_tipo = input("Digite o ID do tipo de usuário que deseja editar: ")
     novo_tipo = input("Digite o novo tipo de usuário: ")
-    db_tipo_usuario.editar_tipo_usuario(id_tipo, novo_tipo)
+    db_tipo_usuario.atualizar_tipo_usuario(id_tipo, novo_tipo)
 
 def excluir_tipo_usuario(db_tipo_usuario):
     id_tipo = input("Digite o ID do tipo de usuário que deseja excluir: ")

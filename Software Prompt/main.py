@@ -30,7 +30,7 @@ def mostrar_animacao_menu():
  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'   
     """
     print(animacao)
-    sleep(10)  # Delay para damain.pyr um efeito de animação
+    sleep(4)  # Delay para damain.pyr um efeito de animação
 
 if __name__ == "__main__":
     mostrar_animacao_menu()  # Chama a animação no início

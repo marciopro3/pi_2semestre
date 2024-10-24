@@ -48,19 +48,19 @@ class UsuarioDB:
                 usuarios = cursor.fetchall()
                 if usuarios:
                     print("\n=== Usuários Cadastrados ===")
-                    for usuario in usuarios:
-                        print(f"ID: {usuario[0]}, Nome: {usuario[1]}, Email: {usuario[2]}, Telefone: {usuario[3]}")
+                    headers = ["ID", "Nome", "Email", "Telefone", "ID Tipo Usuário"]
+                    print(tabulate(usuarios, headers=headers, tablefmt="grid"))
                 else:
                     print("Nenhum usuário cadastrado.")
             except Error as e:
                 print(f"Erro ao buscar dados: {e}")
 
-    def atualizar_usuario(self, id_usuario, novo_nome, novo_email, novo_telefone):
+    def atualizar_usuario(self, id_usuario, novo_nome, novo_email, novo_telefone, tipo_usuario_id):
         if self.connection is not None and self.connection.is_connected():
             try:
                 cursor = self.connection.cursor()
-                sql_query = "UPDATE usuario SET nome = %s, email = %s, telefone = %s WHERE idusuario = %s"
-                cursor.execute(sql_query, (novo_nome, novo_email, novo_telefone, id_usuario))
+                sql_query = "UPDATE usuario SET nome = %s, email = %s, telefone = %s, tipoUsuario_idtipoUsuario = %s WHERE idusuario = %s"
+                cursor.execute(sql_query, (novo_nome, novo_email, novo_telefone, tipo_usuario_id, id_usuario))
                 self.connection.commit()
                 print(f"Usuário ID {id_usuario} atualizado.")
             except Error as e:
@@ -82,17 +82,16 @@ def cadastrar_usuario(db_usuario):
     nome = input("Digite o nome do usuário: ")
     email = input("Digite o email do usuário: ")
     telefone = input("Digite o telefone do usuário: ")
-    data_cadastro = input("Digite a data de cadastro (AAAA-MM-DD): ")
     tipo_usuario_id = input("Digite o ID do tipo de usuário: ")
-    db_usuario.inserir_usuario(nome, email, telefone, data_cadastro, tipo_usuario_id)
+    db_usuario.inserir_usuario(nome, email, telefone, tipo_usuario_id)
 
 def editar_usuario(db_usuario):
     id_usuario = input("Digite o ID do usuário que deseja editar: ")
-    nome = input("Digite o novo nome do usuário: ")
-    email = input("Digite o novo email do usuário: ")
-    telefone = input("Digite o novo telefone do usuário: ")
+    novo_nome = input("Digite o novo nome do usuário: ")
+    novo_email = input("Digite o novo email do usuário: ")
+    novo_telefone = input("Digite o novo telefone do usuário: ")
     tipo_usuario_id = input("Digite o novo ID do tipo de usuário: ")
-    db_usuario.editar_usuario(id_usuario, nome, email, telefone, tipo_usuario_id)
+    db_usuario.atualizar_usuario(id_usuario, novo_nome, novo_email, novo_telefone, tipo_usuario_id)
 
 def excluir_usuario(db_usuario):
     id_usuario = input("Digite o ID do usuário que deseja excluir: ")
