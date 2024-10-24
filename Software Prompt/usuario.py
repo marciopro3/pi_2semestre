@@ -44,11 +44,16 @@ class UsuarioDB:
         if self.connection is not None and self.connection.is_connected():
             try:
                 cursor = self.connection.cursor()
-                cursor.execute("SELECT * FROM usuario")
+                # SQL query com INNER JOIN
+                cursor.execute("""
+                    SELECT u.idusuario, u.nome, u.email, u.telefone, t.tipo 
+                    FROM usuario u
+                    INNER JOIN tipoUsuario t ON u.tipoUsuario_idtipoUsuario = t.idtipoUsuario
+                """)
                 usuarios = cursor.fetchall()
                 if usuarios:
                     print("\n=== Usuários Cadastrados ===")
-                    headers = ["ID", "Nome", "Email", "Telefone", "ID Tipo Usuário"]
+                    headers = ["ID", "Nome", "Email", "Telefone", "Tipo de Usuário"]
                     print(tabulate(usuarios, headers=headers, tablefmt="grid"))
                 else:
                     print("Nenhum usuário cadastrado.")
