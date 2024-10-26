@@ -82,7 +82,7 @@ class UsuarioDB:
             except Error as e:
                 print(f"Erro ao excluir dados: {e}")
 
-# Funções de interface para o menu
+##Funções de interface para o menu
 def cadastrar_usuario(db_usuario):
     nome = input("Digite o nome do usuário: ")
     email = input("Digite o email do usuário: ")

@@ -1,6 +1,6 @@
 import mysql.connector
 from mysql.connector import Error
-from tabulate import tabulate  # Importando a biblioteca tabulate
+from tabulate import tabulate 
 
 class CategoriaDB:
     def __init__(self, host, database, user, password):

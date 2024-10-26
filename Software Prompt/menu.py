@@ -1,5 +1,5 @@
 from usuario import cadastrar_usuario
-from categoria import CategoriaDB  # Adicione esta importação
+from categoria import CategoriaDB
 
 def menu(db_tipo_usuario, db_usuario, db_categoria):
     while True:
