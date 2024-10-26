@@ -84,8 +84,8 @@ def cadastrar_tipo_usuario(db_tipo_usuario):
 
 def editar_tipo_usuario(db_tipo_usuario):
     id_tipo = input("Digite o ID do tipo de usuário que deseja editar: ")
-    novo_tipo = input("Digite o novo tipo de usuário: ")
-    db_tipo_usuario.atualizar_tipo_usuario(id_tipo, novo_tipo)
+    tipo_usuario_id = input("Digite o novo tipo de usuário: ")
+    db_tipo_usuario.atualizar_tipo_usuario(id_tipo, db_tipo_usuario)
 
 def excluir_tipo_usuario(db_tipo_usuario):
     id_tipo = input("Digite o ID do tipo de usuário que deseja excluir: ")

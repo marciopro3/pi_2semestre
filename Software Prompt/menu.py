@@ -65,7 +65,9 @@ def sub_menu_atualizar(db_tipo_usuario, db_usuario, db_categoria):
             novo_nome = input("Digite o novo nome do usuário: ")
             novo_email = input("Digite o novo email do usuário: ")
             novo_telefone = input("Digite o novo telefone do usuário: ")
-            db_usuario.atualizar_usuario(id_usuario, novo_nome, novo_email, novo_telefone)
+            tipo_usuario_id = input("Digite o novo tipo de usuário (ID): ")  # Solicita o tipo de usuário
+            db_usuario.atualizar_usuario(id_usuario, novo_nome, novo_email, novo_telefone, tipo_usuario_id)  # Inclui o tipo_usuario_id
+            print("Usuário atualizado com sucesso.")
         elif opcao == "3":
             id_categoria = input("Digite o ID da categoria: ")
             nova_categoria = input("Digite a nova categoria: ")

@@ -1,4 +1,4 @@
-from time import sleep   ##Biblioteca de "animação"
+from time import sleep   ##Biblioteca de animação
 from menu import menu   ##Importa a classe menu
 from tipo_usuario import TipoUsuarioDB   ##Importa a classe TipoUsuarioDB
 from usuario import UsuarioDB   ##Importa a classe UsuarioDB

@@ -50,7 +50,7 @@ class CategoriaDB:
                     # Criando uma tabela com tabulate
                     headers = ["ID", "Categoria"]
                     print("\n=== Categorias Cadastradas ===")
-                    print(tabulate(categorias, headers, tablefmt="pretty"))  # Usando tabulate para formatar
+                    print(tabulate(categorias, headers, tablefmt="pretty")) 
                 else:
                     print("Nenhuma categoria cadastrada.")
             except Error as e:
