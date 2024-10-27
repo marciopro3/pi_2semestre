@@ -6,6 +6,7 @@ from categoria import CategoriaDB   # Importa a classe CategoriaDB
 from material import MaterialDB    # Importa a classe MaterialDB
 from estado import EstadoDB        # Importa a classe EstadoDB
 from cidade import CidadeDB        # Importa a classe CidadeDB
+from coletor import ColetorDB      # Importa a classe ColetorDB
 
 def mostrar_animacao_menu():
     animacao = r"""
@@ -45,6 +46,7 @@ if __name__ == "__main__":
     db_material = MaterialDB(host="localhost", database="SBOReciclaSV", user="root", password="Admin123*")  # Instancia o material
     db_estado = EstadoDB(host="localhost", database="SBOReciclaSV", user="root", password="Admin123*")  # Instancia o estado
     db_cidade = CidadeDB(host="localhost", database="SBOReciclaSV", user="root", password="Admin123*")  # Instancia a cidade
+    db_coletor = ColetorDB(host="localhost", database="SBOReciclaSV", user="root", password="Admin123*")  # Instancia o coletor
 
     # Conecta no banco
     db_tipo_usuario.conectar()
@@ -53,9 +55,10 @@ if __name__ == "__main__":
     db_material.conectar()  # Conecta o material
     db_estado.conectar()  # Conecta o estado
     db_cidade.conectar()  # Conecta a cidade
+    db_coletor.conectar()  # Conecta o coletor
 
     # Chama o menu principal
-    menu(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade)  # Passa a cidade ao menu
+    menu(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade, db_coletor)  # Passa o coletor ao menu
 
     # Desconecta do banco
     db_tipo_usuario.desconectar()
@@ -64,3 +67,4 @@ if __name__ == "__main__":
     db_material.desconectar()  # Desconecta o material
     db_estado.desconectar()  # Desconecta o estado
     db_cidade.desconectar()  # Desconecta a cidade
+    db_coletor.desconectar()  # Desconecta o coletor

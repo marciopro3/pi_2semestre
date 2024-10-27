@@ -3,8 +3,9 @@ from categoria import CategoriaDB
 from material import MaterialDB
 from estado import EstadoDB  # Importando a classe EstadoDB
 from cidade import CidadeDB, cadastrar_cidade, editar_cidade, excluir_cidade  # Importando a classe CidadeDB
+from coletor import ColetorDB, cadastrar_coletor, editar_coletor, excluir_coletor  # Importando funções do coletor
 
-def menu(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade):
+def menu(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade, db_coletor):
     while True:
         print("\n=== Menu de Opções ===")
         print("1. Inserir")
@@ -15,20 +16,20 @@ def menu(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_c
         opcao = input("Escolha uma opção: ")
 
         if opcao == "1":
-            sub_menu_inserir(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade)
+            sub_menu_inserir(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade, db_coletor)
         elif opcao == "2":
-            sub_menu_atualizar(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade)
+            sub_menu_atualizar(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade, db_coletor)
         elif opcao == "3":
-            sub_menu_excluir(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade)
+            sub_menu_excluir(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade, db_coletor)
         elif opcao == "4":
-            sub_menu_mostrar(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade)
+            sub_menu_mostrar(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade, db_coletor)
         elif opcao == "5":
             print("Saindo do sistema...")
             break
         else:
             print("Opção inválida, tente novamente.")
 
-def sub_menu_inserir(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade):
+def sub_menu_inserir(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade, db_coletor):
     while True:
         print("\n=== Submenu: Inserir ===")
         print("1. Cadastrar tipo de usuário")
@@ -37,7 +38,8 @@ def sub_menu_inserir(db_tipo_usuario, db_usuario, db_categoria, db_material, db_
         print("4. Cadastrar material")
         print("5. Cadastrar estado")
         print("6. Cadastrar cidade")  # Opção de cadastrar cidade
-        print("7. Voltar ao menu anterior")
+        print("7. Cadastrar coletor")  # Nova opção para cadastrar coletor
+        print("8. Voltar ao menu anterior")
         opcao = input("Escolha uma opção: ")
 
         if opcao == "1":
@@ -60,11 +62,13 @@ def sub_menu_inserir(db_tipo_usuario, db_usuario, db_categoria, db_material, db_
         elif opcao == "6":
             cadastrar_cidade(db_cidade)  # Chama a função para cadastrar cidade
         elif opcao == "7":
+            cadastrar_coletor(db_coletor)  # Chama a função para cadastrar coletor
+        elif opcao == "8":
             break
         else:
             print("Opção inválida, tente novamente.")
 
-def sub_menu_atualizar(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade):
+def sub_menu_atualizar(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade, db_coletor):
     while True:
         print("\n=== Submenu: Atualizar ===")
         print("1. Editar tipo de usuário")
@@ -73,7 +77,8 @@ def sub_menu_atualizar(db_tipo_usuario, db_usuario, db_categoria, db_material, d
         print("4. Editar material")
         print("5. Editar estado")
         print("6. Editar cidade")  # Opção de editar cidade
-        print("7. Voltar ao menu anterior")
+        print("7. Editar coletor")  # Nova opção para editar coletor
+        print("8. Voltar ao menu anterior")
         opcao = input("Escolha uma opção: ")
 
         if opcao == "1":
@@ -104,11 +109,13 @@ def sub_menu_atualizar(db_tipo_usuario, db_usuario, db_categoria, db_material, d
         elif opcao == "6":
             editar_cidade(db_cidade)  # Chama a função para editar cidade
         elif opcao == "7":
+            editar_coletor(db_coletor)  # Chama a função para editar coletor
+        elif opcao == "8":
             break
         else:
             print("Opção inválida, tente novamente.")
 
-def sub_menu_excluir(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade):
+def sub_menu_excluir(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade, db_coletor):
     while True:
         print("\n=== Submenu: Excluir ===")
         print("1. Excluir tipo de usuário")
@@ -117,7 +124,8 @@ def sub_menu_excluir(db_tipo_usuario, db_usuario, db_categoria, db_material, db_
         print("4. Excluir material")
         print("5. Excluir estado")
         print("6. Excluir cidade")  # Opção de excluir cidade
-        print("7. Voltar ao menu anterior")
+        print("7. Excluir coletor")  # Nova opção para excluir coletor
+        print("8. Voltar ao menu anterior")
         opcao = input("Escolha uma opção: ")
 
         if opcao == "1":
@@ -138,11 +146,13 @@ def sub_menu_excluir(db_tipo_usuario, db_usuario, db_categoria, db_material, db_
         elif opcao == "6":
             excluir_cidade(db_cidade)  # Chama a função para excluir cidade
         elif opcao == "7":
+            excluir_coletor(db_coletor)  # Chama a função para excluir coletor
+        elif opcao == "8":
             break
         else:
             print("Opção inválida, tente novamente.")
 
-def sub_menu_mostrar(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade):
+def sub_menu_mostrar(db_tipo_usuario, db_usuario, db_categoria, db_material, db_estado, db_cidade, db_coletor):
     while True:
         print("\n=== Submenu: Mostrar ===")
         print("1. Mostrar tipos de usuário")
@@ -151,7 +161,8 @@ def sub_menu_mostrar(db_tipo_usuario, db_usuario, db_categoria, db_material, db_
         print("4. Mostrar materiais")
         print("5. Mostrar estados")
         print("6. Mostrar cidades")  # Opção de mostrar cidades
-        print("7. Voltar ao menu anterior")
+        print("7. Mostrar coletores")  # Nova opção para mostrar coletores
+        print("8. Voltar ao menu anterior")
         opcao = input("Escolha uma opção: ")
 
         if opcao == "1":
@@ -167,6 +178,8 @@ def sub_menu_mostrar(db_tipo_usuario, db_usuario, db_categoria, db_material, db_
         elif opcao == "6":
             db_cidade.listar_cidades()  # Mostrando cidades
         elif opcao == "7":
+            db_coletor.listar_coletores()  # Mostrando coletores
+        elif opcao == "8":
             break
         else:
             print("Opção inválida, tente novamente.")
