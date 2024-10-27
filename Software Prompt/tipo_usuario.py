@@ -77,7 +77,7 @@ class TipoUsuarioDB:
             except Error as e:
                 print(f"Erro ao excluir dados: {e}")
 
-##Funções de interface para o menu
+# Funções de interface para o menu
 def cadastrar_tipo_usuario(db_tipo_usuario):
     tipo = input("Digite o tipo de usuário: ")
     db_tipo_usuario.inserir_tipo_usuario(tipo)

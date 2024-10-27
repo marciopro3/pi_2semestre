@@ -47,7 +47,6 @@ class CategoriaDB:
                 cursor.execute("SELECT * FROM categoria")
                 categorias = cursor.fetchall()
                 if categorias:
-                    # Criando uma tabela com tabulate
                     headers = ["ID", "Categoria"]
                     print("\n=== Categorias Cadastradas ===")
                     print(tabulate(categorias, headers, tablefmt="pretty")) 

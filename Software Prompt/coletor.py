@@ -44,7 +44,6 @@ class ColetorDB:
         if self.connection is not None and self.connection.is_connected():
             try:
                 cursor = self.connection.cursor()
-                # Aqui está a consulta com o INNER JOIN
                 cursor.execute("""
                     SELECT 
                         coletor.idcoletor, 

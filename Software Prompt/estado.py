@@ -77,7 +77,7 @@ class EstadoDB:
             except Error as e:
                 print(f"Erro ao excluir dados: {e}")
 
-## Funções de interface para o menu de estados
+# Funções de interface para o menu de estados
 def cadastrar_estado(db_estado):
     id_estado = input("Digite o ID do estado (2 letras): ")
     nome = input("Digite o nome do estado: ")

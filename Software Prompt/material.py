@@ -81,7 +81,7 @@ class MaterialDB:
             except Error as e:
                 print(f"Erro ao excluir dados: {e}")
 
-## Funções de interface para o menu de materiais
+# Funções de interface para o menu de materiais
 def cadastrar_material(db_material):
     nome = input("Digite o nome do material: ")
     descricao = input("Digite a descrição do material: ")

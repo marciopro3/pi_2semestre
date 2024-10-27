@@ -44,7 +44,6 @@ class UsuarioDB:
         if self.connection is not None and self.connection.is_connected():
             try:
                 cursor = self.connection.cursor()
-                # SQL query com INNER JOIN
                 cursor.execute("""
                     SELECT u.idusuario, u.nome, u.email, u.telefone, t.tipo 
                     FROM usuario u
@@ -82,7 +81,7 @@ class UsuarioDB:
             except Error as e:
                 print(f"Erro ao excluir dados: {e}")
 
-##Funções de interface para o menu
+# Funções de interface para o menu
 def cadastrar_usuario(db_usuario):
     nome = input("Digite o nome do usuário: ")
     email = input("Digite o email do usuário: ")
