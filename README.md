@@ -55,7 +55,7 @@ Para configurar o ambiente de desenvolvimento:
    - **Senha**: `1234`
 
 2. **Crie as tabelas** no MySQL:
-   - Scripts SQL estão disponíveis na pasta `/sql` do repositório.
+   - Scripts SQL estão disponíveis na pasta `/Banco de Dados` do repositório.
 
 3. **Instale as bibliotecas necessárias em Python**:
    - Execute `pip install -r requirements.txt` para instalar as dependências.
