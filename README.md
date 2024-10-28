@@ -1,103 +1,82 @@
 # Sistema Recicla
 
-Projeto Integrado (P.I.) desenvolvido para a disciplina de Modelagem de Dados, com o objetivo de criar um sistema de gestão de resíduos recicláveis. Este sistema permite o cadastro, atualização, visualização e exclusão de tipos de usuários, usuários, categorias e materiais recicláveis. **Tecnologias principais**: Python, MySQL, Power BI.
+## Descrição do Projeto
+O **Sistema Recicla** é um sistema de gerenciamento de materiais recicláveis desenvolvido como parte do Projeto Integrado (P.I.) para o curso universitário. Este sistema permite o cadastro, atualização, exibição e exclusão de usuários, categorias de lixo reciclável e materiais. Além disso, integra-se com o Power BI para uma análise visual das informações cadastradas, facilitando a gestão e o entendimento dos dados.
 
-## Sumário
+## Funcionalidades Principais
+- **Cadastro e Gestão de Usuários:** Permite o cadastro de novos usuários, a edição e a exclusão de usuários existentes, e a classificação dos usuários em diferentes tipos.
+- **Gestão de Categorias de Lixo Reciclável:** Possibilita o cadastro, exibição, edição e exclusão de categorias de materiais recicláveis.
+- **Gestão de Materiais Recicláveis:** Registra e mantém informações detalhadas sobre materiais recicláveis.
+- **Integração com Power BI:** Utiliza views específicas no banco de dados para conectar o Power BI e possibilitar uma visualização prática e eficiente das informações cadastradas.
+- **Interface Intuitiva em Menu:** Navegação simplificada para a inserção, atualização, exclusão e visualização de registros.
 
-- [Funcionalidades](#funcionalidades)
-- [Arquitetura e Estrutura do Banco de Dados](#arquitetura-e-estrutura-do-banco-de-dados)
-- [Configuração do Ambiente](#configuração-do-ambiente)
-- [Instalação e Execução](#instalação-e-execução)
-- [Uso do Sistema](#uso-do-sistema)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
+## Estrutura do Menu
+1. **Inserir**
+   - Cadastrar tipo de usuário
+   - Cadastrar usuário
+   - Cadastrar categoria
+   - Cadastrar material
+   - Voltar ao menu principal
 
----
+2. **Atualizar**
+   - Editar tipo de usuário
+   - Editar usuário
+   - Editar categoria
+   - Editar material
+   - Voltar ao menu principal
 
-## Funcionalidades
+3. **Excluir**
+   - Excluir tipo de usuário
+   - Excluir usuário
+   - Excluir categoria
+   - Excluir material
+   - Voltar ao menu principal
 
-O sistema foi projetado para gerenciar informações sobre tipos de usuário, usuários, categorias de resíduos recicláveis e materiais. As principais funcionalidades incluem:
+4. **Mostrar**
+   - Mostrar tipo de usuário
+   - Mostrar usuário
+   - Mostrar categoria
+   - Mostrar material
+   - Voltar ao menu principal
 
-- **Inserir Dados**:
-  - Cadastrar tipos de usuários, novos usuários, categorias e materiais.
-- **Atualizar Dados**:
-  - Editar informações de tipos de usuários, usuários, categorias e materiais.
-- **Excluir Dados**:
-  - Remover tipos de usuários, usuários, categorias e materiais do sistema.
-- **Mostrar Dados**:
-  - Visualizar todos os tipos de usuários, usuários, categorias e materiais cadastrados.
+5. **Sair**
 
-## Arquitetura e Estrutura do Banco de Dados
+## Estrutura do Banco de Dados
+O banco de dados foi implementado em **MySQL** com a seguinte estrutura:
+- **Tabelas principais:** `usuario`, `tipoUsuario`, `categoria`, e `material`.
+- **Índices e Views:** Implementados para otimização de consultas e integração com Power BI.
 
-- **Banco de Dados**: MySQL
-  - **Tabelas**:
-    - `usuario`: Armazena informações dos usuários cadastrados no sistema.
-    - `tipoUsuario`: Armazena tipos de perfis de usuário (ex.: administrador, colaborador).
-    - `categoria`: Armazena as categorias de lixos recicláveis (ex.: plástico, papel).
-    - `material`: Armazena os materiais e suas respectivas categorias.
-  - **Views**: Criadas para integração com Power BI e visualização de dados gerenciais.
-  - **Índices**: Implementados para otimização das consultas.
+**Configurações de Conexão:**
+- **Host:** localhost
+- **Usuário:** root
+- **Senha:** 1234
 
-- **Tecnologias**:
-  - **Linguagem de Programação**: Python, com uso de Programação Orientada a Objetos.
-  - **Ferramentas**:
-    - **VSCode**: Ambiente de desenvolvimento.
-    - **GitHub**: Repositório de código-fonte.
-    - **Power BI**: Integração para visualização de dados.
+## Tecnologias Utilizadas
+- **Linguagem:** Python, utilizando programação orientada a objetos (POO).
+- **Banco de Dados:** MySQL, com o uso de views para a integração com Power BI.
+- **Ferramenta de Visualização:** Power BI.
+- **IDE:** Visual Studio Code.
+- **Versionamento de Código:** GitHub.
 
-## Configuração do Ambiente
+## Professores Orientadores
+Este projeto contou com o apoio e orientação dos seguintes professores:
+- **Mariangela Martimbianco Santos:** Power BI
+- **Max Streicher Vallim:** Modelagem de Dados
+- **Nivaldo de Andrade:** Programação Orientada a Objetos
+- **Marcelo Ciacco de Almeida:** Lógica de Programação
 
-Para configurar o ambiente de desenvolvimento:
-
-1. **Instale o MySQL**:
-   - **Host**: `localhost`
-   - **Usuário**: `root`
-   - **Senha**: `1234`
-
-2. **Crie as tabelas** no MySQL:
-   - Scripts SQL estão disponíveis na pasta `/Banco de Dados` do repositório.
-
-3. **Instale as bibliotecas necessárias em Python**:
-   - Execute `pip install -r requirements.txt` para instalar as dependências.
-
-## Instalação e Execução
-
-1. **Clone o repositório**:
+## Como Executar o Projeto
+1. **Clonar o Repositório:**
    ```bash
-   git clone https://github.com/seu-usuario/sistema-recicla.git
+   git clone <https://github.com/marciopro3/pi_2semestre>
    ```
-2. **Navegue até o diretório do projeto**:
-   ```bash
-   cd sistema-recicla
-   ```
-3. **Configure o banco de dados**:
-   - Execute os scripts SQL para criar as tabelas e views necessárias.
-
-4. **Execute o sistema**:
+2. **Configurar o Banco de Dados:** Criar as tabelas no MySQL utilizando os scripts fornecidos e configurar o arquivo de conexão com os detalhes do banco de dados.
+3. **Executar o Sistema:** Execute o script principal do projeto com:
    ```bash
    python main.py
    ```
+4. **Visualização dos Dados no Power BI:** Conectar o Power BI ao banco de dados MySQL e utilizar as views pré-configuradas para análise.
 
-## Uso do Sistema
+---
 
-- **Fluxo de Menus**:
-  - **Inserir**: Cadastrar tipo de usuário, cadastrar usuário, cadastrar categoria, cadastrar material.
-  - **Atualizar**: Editar tipo de usuário, editar usuário, editar categoria, editar material.
-  - **Excluir**: Excluir tipo de usuário, excluir usuário, excluir categoria, excluir material.
-  - **Mostrar**: Mostrar tipo de usuário, mostrar usuário, mostrar categoria, mostrar material.
-
-Para mais detalhes sobre cada funcionalidade, consulte o manual do usuário localizado na pasta `/docs` do repositório.
-
-## Contribuição
-
-Para contribuir com o projeto:
-
-1. Realize um **fork** do repositório.
-2. Crie uma nova branch (`git checkout -b feature/nova-funcionalidade`).
-3. Faça o commit de suas alterações (`git commit -am 'Adiciona nova funcionalidade'`).
-4. Envie a sua branch (`git push origin feature/nova-funcionalidade`).
-5. Abra um **Pull Request**.
-
-## Licença
-
-Este projeto é licenciado sob a Licença MIT. Consulte o arquivo `LICENSE` para mais detalhes.
+**Projeto desenvolvido para fins acadêmicos.**
