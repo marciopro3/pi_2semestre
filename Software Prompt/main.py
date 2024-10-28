@@ -38,7 +38,7 @@ def mostrar_animacao_menu():
  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'   
     """
     print(animacao)
-    sleep(2)   # Aguarda 2 segundos para instanciar o banco, conectar no banco e chamar o menu.
+    sleep(4)   # Aguarda 2 segundos para instanciar o banco, conectar no banco e chamar o menu.
 
 if __name__ == "__main__":
     mostrar_animacao_menu()  
