@@ -68,7 +68,7 @@ Este projeto contou com o apoio e orientação dos seguintes professores:
 ## Como Executar o Projeto
 1. **Clonar o Repositório:**
    ```bash
-   git clone <https://github.com/marciopro3/pi_2semestre>
+   https://github.com/marciopro3/pi_2semestre
    ```
 2. **Configurar o Banco de Dados:** Criar as tabelas no MySQL utilizando os scripts fornecidos e configurar o arquivo de conexão com os detalhes do banco de dados.
 3. **Executar o Sistema:** Execute o script principal do projeto com:
