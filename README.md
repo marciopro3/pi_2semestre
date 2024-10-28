@@ -1,5 +1,3 @@
----
-
 # Sistema Recicla
 
 ## Descrição
